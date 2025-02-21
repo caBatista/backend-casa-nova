@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=senha
+ENV POSTGRES_DB=casa_nova
+
+EXPOSE 5432
