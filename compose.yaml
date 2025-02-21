@@ -1,0 +1,11 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:latest
+    container_name: casa_nova_db
+    environment:
+      ORACLE_PASSWORD: secret
+    ports:
+      - "1521:1521"
+
+volumes:
+  oracle_data:
