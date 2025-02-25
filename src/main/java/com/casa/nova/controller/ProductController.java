@@ -12,6 +12,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/product")
 public class ProductController {
@@ -26,10 +28,10 @@ public class ProductController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<ProductResponse>> getProduct(@PageableDefault Pageable pageable){
-		var page = productService.findAll(pageable);
+	public ResponseEntity<List<ProductResponse>> getProducts(){
+		var products = productService.findAll();
 		
-		return ResponseEntity.ok(page);
+		return ResponseEntity.ok(products);
 	}
 	
 	@GetMapping("/{id}")

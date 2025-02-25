@@ -24,6 +24,8 @@ public class Product {
 	
 	private String imageUrl;
 	
+	private String marketplaceUrl;
+	
 	@Builder.Default
 	private boolean active = true;
 	
@@ -39,6 +41,9 @@ public class Product {
 		}
 		if(product.imageUrl() != null) {
 			this.imageUrl = product.imageUrl();
+		}
+		if(product.marketplaceUrl() != null) {
+			this.marketplaceUrl = product.marketplaceUrl();
 		}
 	}
 	

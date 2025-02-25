@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 	@Autowired
@@ -20,10 +22,12 @@ public class ProductService {
 		return new ProductResponse(product);
 	}
 	
-	public Page<ProductResponse> findAll(Pageable pageable) {
-		var products = productRepository.findByActiveTrue(pageable);
+	public List<ProductResponse> findAll() {
+		var products = productRepository.findByActiveTrue();
 		
-		return products.map(ProductResponse :: new);
+		return products.stream()
+				.map(ProductResponse :: new)
+				.toList();
 	}
 	
 	public ProductResponse findById(Long id) {
